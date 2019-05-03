@@ -1,0 +1,28 @@
+<template>
+  <message v-bind:user="user" v-bind:date="date">
+    <img slot="content" src="http://thecatapi.com/api/images/get?format=src&type=gif">
+  </message>
+</template>
+
+<script>
+import Message from './message'
+
+export default {
+  components: {
+    Message
+  },
+  props : {
+    user : {
+      type : Object,
+      required : true,
+      validator : function (value) {
+        return "name" in value && "avatar" in value;
+      }
+    },
+    date : {
+      type : Date,
+      required : true
+    }
+  }
+}
+</script>
