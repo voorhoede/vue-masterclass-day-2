@@ -43,4 +43,8 @@ export default {
 .message__header {
   margin-bottom: calc(var(--spacing) * 0.5);
 }
+
+.message__date {
+  margin-left: 0.25rem;
+}
 </style>
