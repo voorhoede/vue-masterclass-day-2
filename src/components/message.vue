@@ -19,7 +19,7 @@ export default {
     user: {
       type: Object,
       required: true,
-      validator: function (value) {
+      validator: function(value) {
         return "name" in value && "avatar" in value;
       }
     },
@@ -27,6 +27,20 @@ export default {
       type: Date,
       required: true
     }
-  },
-}
+  }
+};
 </script>
+
+<style>
+.message {
+  padding: var(--spacing);
+}
+
+.message:hover {
+  background: #fafafa;
+}
+
+.message__header {
+  margin-bottom: calc(var(--spacing) * 0.5);
+}
+</style>
