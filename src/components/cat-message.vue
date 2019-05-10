@@ -1,5 +1,5 @@
 <template>
-  <message v-bind:user="user" v-bind:date="date">
+  <message :user="user" :date="date">
     <img slot="content" src="http://thecatapi.com/api/images/get?format=src&type=gif">
   </message>
 </template>

@@ -2,7 +2,7 @@
   <li class="message">
     <div class="message__header">
       <slot name="header">
-        <img v-bind:src="user.avatar" class="message__avatar">
+        <img :src="user.avatar" class="message__avatar">
         <strong>{{ user.name }}</strong>
         <span class="message__date">{{ date.toLocaleTimeString() }}</span>
       </slot>

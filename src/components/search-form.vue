@@ -1,5 +1,5 @@
 <template>
-  <form class="search-form" v-on:submit.prevent="onSubmit">
+  <form class="search-form" @submit.prevent="onSubmit">
     <input type="search" v-model="searchText" placeholder="Search" class="search-field">
   </form>
 </template>

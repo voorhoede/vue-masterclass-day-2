@@ -1,5 +1,5 @@
 <template>
-  <form class="message-field" v-on:submit.prevent="onSubmit">
+  <form class="message-field" @submit.prevent="onSubmit">
     <input class="message-field__input" v-model="text" type="text" autofocus>
     <input class="message-field__submit" type="submit">
   </form>

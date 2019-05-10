@@ -3,12 +3,12 @@
     <aside class="search-sidebar" v-if="searching">
       <button
         class="reset-button search-sidebar__close"
-        v-on:click="searching = false"
+        @click="searching = false"
         aria-label="Close"
         title="Close"
       ></button>
       <h2 class="search-sidebar__header">{{ header }}</h2>
-      <message-list v-bind:messages="filteredMessages"></message-list>
+      <message-list :messages="filteredMessages"></message-list>
     </aside>
   </transition>
 </template>
