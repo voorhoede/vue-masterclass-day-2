@@ -1,6 +1,6 @@
 <template>
   <section class="chat-section">
-    <div class="chat-section__messages">
+    <div ref="messages" class="chat-section__messages">
       <message-list :messages="messages"></message-list>
     </div>
     <message-field @submit="onSubmit" class="chat-section__field"></message-field>
@@ -18,6 +18,14 @@ export default {
   },
   data: function() {
     return window.chat;
+  },
+  watch: {
+    messages() {
+      this.$nextTick(() => {
+        const messagesEl = this.$refs.messages
+        messagesEl.scrollTop = messagesEl.scrollHeight
+      })
+    }
   },
   methods: {
     createMessage() {
