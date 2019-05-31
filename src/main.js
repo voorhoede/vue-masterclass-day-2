@@ -30,7 +30,7 @@ new Vue({
       console.log('newProp was added/changed');
     },
 
-    messages(newValue, oldValue) {
+    messages(newValue) {
       console.log(`messages changed to ${newValue}`);
     }
   },
