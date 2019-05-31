@@ -33,6 +33,14 @@ export default {
   computed: {
     ...mapGetters(['currentUser'])
   },
+  watch: {
+    messages() {
+      this.$nextTick(() => {
+        const messagesEl = this.$refs.messages
+        messagesEl.scrollTop = messagesEl.scrollHeight
+      })
+    }
+  },
   methods: {
     ...mapActions(['sendMessage']),
     createMessage() {
