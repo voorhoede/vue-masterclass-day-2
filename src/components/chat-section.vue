@@ -23,6 +23,14 @@ export default {
       messages: state => state.messages
     })
   },
+  watch: {
+    messages() {
+      this.$nextTick(() => {
+        const messagesEl = this.$refs.messages
+        messagesEl.scrollTop = messagesEl.scrollHeight
+      })
+    }
+  },
   methods: {
     ...mapMutations(['addMessage']),
     createMessage() {
