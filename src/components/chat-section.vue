@@ -1,7 +1,24 @@
 <template>
   <section class="chat-section">
     <div ref="messages" class="chat-section__messages">
-      <message-list :messages="messages"/>
+      <message-list>
+        <template v-for="message of messages">
+          <text-message
+            v-if="message.type === 'text'"
+            :key="message.id"
+            :date="message.date"
+            :user="message.user"
+            :text="message.text"
+          />
+
+          <cat-message
+            v-else-if="message.type === 'cat'"
+            :key="message.id"
+            :date="message.date"
+            :user="message.user"
+          />
+        </template>
+      </message-list>
     </div>
     <message-field @submit="onSubmit" class="chat-section__field"/>
   </section>
@@ -10,11 +27,15 @@
 <script>
 import MessageList from "./message-list";
 import MessageField from "./message-field";
+import TextMessage from "./text-message";
+import CatMessage from "./cat-message";
 
 export default {
   components: {
     MessageList,
-    MessageField
+    MessageField,
+    TextMessage,
+    CatMessage
   },
   props: {
     messages: {

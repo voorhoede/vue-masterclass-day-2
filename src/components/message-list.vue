@@ -1,49 +1,12 @@
 <template>
   <div class="message-list">
-    <div v-if="messages.length === 0" class="message-list__empty">No messages</div>
+    <div v-if="!$slots.default" class="message-list__empty">No messages</div>
 
     <transition-group tag="ol" class="message-list__list" name="pop">
-      <template v-for="message of messages">
-        <text-message
-          v-if="message.type === 'text'"
-          :key="message.id"
-          :date="message.date"
-          :user="message.user"
-          :text="message.text"
-        />
-
-        <cat-message
-          v-else-if="message.type === 'cat'"
-          :key="message.id"
-          :date="message.date"
-          :user="message.user"
-        />
-      </template>
+      <slot />
     </transition-group>
   </div>
 </template>
-
-
-<script>
-import TextMessage from "./text-message";
-import CatMessage from "./cat-message";
-
-export default {
-  components: {
-    TextMessage,
-    CatMessage
-  },
-  props: {
-    messages: {
-      type: Array,
-      default: () => {
-        return [];
-      },
-      required: true
-    }
-  }
-};
-</script>
 
 <style>
 .message-list {
