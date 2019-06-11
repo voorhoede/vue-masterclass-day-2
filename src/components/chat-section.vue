@@ -1,9 +1,9 @@
 <template>
   <section class="chat-section">
     <div ref="messages" class="chat-section__messages">
-      <message-list :messages="messages"></message-list>
+      <message-list :messages="messages"/>
     </div>
-    <message-field @submit="onSubmit" class="chat-section__field"></message-field>
+    <message-field @submit="onSubmit" class="chat-section__field"/>
   </section>
 </template>
 
