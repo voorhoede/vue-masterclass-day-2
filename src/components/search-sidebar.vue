@@ -21,8 +21,15 @@ export default {
   components: {
     MessageList
   },
-  data: function() {
-    return window.chat;
+  props: {
+    messages: {
+      type: Array,
+      required: true
+    },
+    searching: {
+      type: Boolean,
+      default: false
+    }
   },
   computed: {
     filteredMessages() {
