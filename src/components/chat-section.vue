@@ -16,8 +16,15 @@ export default {
     MessageList,
     MessageField
   },
-  data: function() {
-    return window.chat;
+  props: {
+    messages: {
+      type: Array,
+      required: true
+    },
+    user: {
+      type: Object,
+      required: true
+    }
   },
   watch: {
     messages() {
@@ -46,7 +53,7 @@ export default {
         message.text = text;
       }
 
-      this.messages.push(message);
+      this.$emit('newMessage', message)
     }
   }
 };
