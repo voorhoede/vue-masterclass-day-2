@@ -8,7 +8,7 @@
         title="Close"
       ></button>
       <h2 class="search-sidebar__header">{{ header }}</h2>
-      <message-list :messages="filteredMessages"></message-list>
+      <message-list :messages="filteredMessages"/>
     </aside>
   </transition>
 </template>

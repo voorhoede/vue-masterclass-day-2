@@ -8,7 +8,7 @@
       </slot>
     </div>
     <div class="message__content">
-      <slot name="content"></slot>
+      <slot name="content"/>
     </div>
   </li>
 </template>

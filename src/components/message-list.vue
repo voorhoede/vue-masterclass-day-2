@@ -10,14 +10,14 @@
           :date="message.date"
           :user="message.user"
           :text="message.text"
-        ></text-message>
+        />
 
         <cat-message
           v-else-if="message.type === 'cat'"
           :key="message.id"
           :date="message.date"
           :user="message.user"
-        ></cat-message>
+        />
       </template>
     </transition-group>
   </div>
