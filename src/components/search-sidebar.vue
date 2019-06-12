@@ -22,6 +22,12 @@ export default {
   components: {
     MessageList
   },
+  props: {
+    searching: {
+      type: Boolean,
+      default: false
+    }
+  },
   computed: {
     ...mapState({
       messages: state => state.messages,
