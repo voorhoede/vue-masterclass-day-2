@@ -16,7 +16,7 @@
 
 <script>
 import MessageList from "./message-list";
-import { mapState, mapMutations } from 'vuex';
+import { mapState, mapMutations, mapGetters } from 'vuex';
 
 export default {
   components: {
@@ -24,11 +24,11 @@ export default {
   },
   computed: {
     ...mapState({
-      messages: state => state.messages,
       user: state => state.user,
       searching: state => state.searching,
       searchText: state => state.searchText,
     }),
+    ...mapGetters(['messages']),
     filteredMessages() {
       return this.messages.filter(
         message => message.text.indexOf(this.searchText) > -1

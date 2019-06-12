@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { mapState, mapMutations } from 'vuex'
+import { mapState, mapMutations, mapGetters } from 'vuex'
 import MessageList from "./message-list";
 import MessageField from "./message-field";
 
@@ -27,9 +27,9 @@ export default {
   },
   computed: {
     ...mapState({
-      user: state => state.user,
-      messages: state => state.messages
-    })
+      user: state => state.user
+    }),
+    ...mapGetters(['messages'])
   },
   methods: {
     ...mapMutations(['addMessage']),

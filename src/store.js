@@ -8,6 +8,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    users: [],
     user: {
       name: "Anoniempje",
       avatar: "./images/avatar.png"
@@ -16,12 +17,24 @@ export default new Vuex.Store({
     searching: false,
     searchText: ''
   },
+  getters: {
+    messages (state) {
+      return state.messages.map(message => {
+        const user = state.users.find(user => user._id === message.user)
+        message.user = user
+        return message
+      })
+    }
+  },
   mutations: {
     addMessage(state, message) {
       state.messages.push(message)
     },
-    addMessages(state, messages) {
+    setMessages(state, messages) {
       state.messages = [...state.messages, ...messages]
+    },
+    setUsers(state, users) {
+      state.users = users
     },
     setUserName(state, name) {
       state.user.name = name
@@ -35,9 +48,10 @@ export default new Vuex.Store({
   },
   actions: {
     async initChat({ commit }) {
-      const { messages } = await api.init()
+      const { messages, users } = await api.init()
 
-      commit('addMessages', messages)
+      commit('setUsers', users)
+      commit('setMessages', messages)
     }
   }
 })
