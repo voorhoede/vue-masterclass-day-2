@@ -47,6 +47,10 @@ export default {
     searching: {
       type: Boolean,
       default: false
+    },
+    searchText: {
+      type: String,
+      default: ''
     }
   },
   computed: {

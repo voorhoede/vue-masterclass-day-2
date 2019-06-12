@@ -3,7 +3,10 @@
     <app-header/>
     <app-sidebar/>
     <chat-section/>
-    <search-sidebar :searching="searching"/>
+    <search-sidebar
+      :searching="searching"
+      :search-text="searchText"
+    />
   </div>
 </template>
 
