@@ -1,5 +1,8 @@
 import Vuex from 'vuex'
 import Vue from 'vue'
+import Api from './api/index.js';
+
+const api = new Api()
 
 Vue.use(Vuex)
 
@@ -17,6 +20,9 @@ export default new Vuex.Store({
     addMessage(state, message) {
       state.messages.push(message)
     },
+    addMessages(state, messages) {
+      state.messages = [...state.messages, ...messages]
+    },
     setUserName(state, name) {
       state.user.name = name
     },
@@ -25,6 +31,13 @@ export default new Vuex.Store({
     },
     setSearchText(state, query) {
       state.searchText = query
+    }
+  },
+  actions: {
+    async initChat({ commit }) {
+      const { messages } = await api.init()
+
+      commit('addMessages', messages)
     }
   }
 })

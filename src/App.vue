@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 import AppHeader from "./components/app-header";
 import AppSidebar from "./components/app-sidebar";
 import ChatSection from "./components/chat-section";
@@ -29,5 +29,11 @@ export default {
       searching: state => state.searching
     })
   },
+  created() {
+    this.initChat()
+  },
+  methods: {
+    ...mapActions(['initChat'])
+  }
 };
 </script>
