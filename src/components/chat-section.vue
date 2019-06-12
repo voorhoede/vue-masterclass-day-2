@@ -25,6 +25,7 @@
 </template>
 
 <script>
+import { mapState, mapMutations } from 'vuex'
 import MessageList from "./message-list";
 import MessageField from "./message-field";
 import TextMessage from "./text-message";
@@ -37,16 +38,6 @@ export default {
     TextMessage,
     CatMessage
   },
-  props: {
-    messages: {
-      type: Array,
-      required: true
-    },
-    user: {
-      type: Object,
-      required: true
-    }
-  },
   watch: {
     messages() {
       this.$nextTick(() => {
@@ -55,7 +46,14 @@ export default {
       })
     }
   },
+  computed: {
+    ...mapState({
+      user: state => state.user,
+      messages: state => state.messages
+    })
+  },
   methods: {
+    ...mapMutations(['addMessage']),
     createMessage() {
       return {
         date: new Date(),
@@ -63,7 +61,6 @@ export default {
         id: this.messages.length
       };
     },
-
     onSubmit(text) {
       let message = this.createMessage();
 
@@ -74,7 +71,7 @@ export default {
         message.text = text;
       }
 
-      this.$emit('newMessage', message)
+      this.addMessage(message)
     }
   }
 };

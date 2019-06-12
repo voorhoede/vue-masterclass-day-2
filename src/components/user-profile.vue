@@ -1,14 +1,30 @@
 <template>
   <div class="user-profile">
     <label class="user-profile__label" for="name">Name</label>
-    <input type="text" id="name" v-model="user.name" class="user-profile__name">
+    <input
+      type="text"
+      id="name"
+      class="user-profile__name"
+      :value="user.name"
+      @input="onNameInput"
+    >
   </div>
 </template>
 
 <script>
+import { mapState, mapMutations } from 'vuex'
+
 export default {
-  data: function() {
-    return window.chat;
+  computed: {
+    ...mapState({
+      user: state => state.user
+    })
+  },
+  methods: {
+    ...mapMutations(['setUserName']),
+    onNameInput(e) {
+      this.setUserName(e.target.value)
+    }
   }
 };
 </script>

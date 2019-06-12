@@ -5,7 +5,18 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    user: {},
+    user: {
+      name: "Anoniempje",
+      avatar: "./images/avatar.png"
+    },
     messages: []
+  },
+  mutations: {
+    addMessage(state, message) {
+      state.messages.push(message)
+    },
+    setUserName(state, userName) {
+      state.user.userName = userName
+    }
   }
 })

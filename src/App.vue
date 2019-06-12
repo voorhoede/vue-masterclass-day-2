@@ -4,7 +4,6 @@
     <app-sidebar/>
     <chat-section
       :messages="messages"
-      :user="user"
       @newMessage="onNewMessage"
     />
     <search-sidebar
@@ -15,6 +14,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import AppHeader from "./components/app-header";
 import AppSidebar from "./components/app-sidebar";
 import ChatSection from "./components/chat-section";
@@ -30,6 +30,12 @@ export default {
     AppSidebar,
     ChatSection,
     SearchSidebar
+  },
+  computed: {
+    ...mapState({
+      user: state => state.user,
+      messages: state => state.messages
+    })
   },
   methods: {
     onNewMessage(message) {

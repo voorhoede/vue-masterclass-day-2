@@ -6,10 +6,6 @@ import './main.css'
 Vue.config.productionTip = false
 
 window.chat = {
-  user: {
-    name: "Anoniempje",
-    avatar: "./images/avatar.png"
-  },
   channels: [{
       name: 'Daily'
     },
@@ -18,7 +14,6 @@ window.chat = {
     }
   ],
   currentChannel: 'Daily',
-  messages: [],
   searching: false,
   searchText: ''
 }
