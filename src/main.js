@@ -9,14 +9,6 @@ window.chat = {
     name: "Anoniempje",
     avatar: "./images/avatar.png"
   },
-  channels: [{
-      name: 'Daily'
-    },
-    {
-      name: 'General'
-    }
-  ],
-  currentChannel: 'Daily',
   messages: [],
   searching: false,
   searchText: ''
