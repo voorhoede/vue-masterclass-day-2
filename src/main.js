@@ -6,14 +6,6 @@ import './main.css'
 Vue.config.productionTip = false
 
 window.chat = {
-  channels: [{
-      name: 'Daily'
-    },
-    {
-      name: 'General'
-    }
-  ],
-  currentChannel: 'Daily',
   searching: false,
   searchText: ''
 }
