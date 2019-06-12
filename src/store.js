@@ -15,8 +15,8 @@ export default new Vuex.Store({
     addMessage(state, message) {
       state.messages.push(message)
     },
-    setUserName(state, userName) {
-      state.user.userName = userName
+    setUserName(state, name) {
+      state.user.name = name
     }
   }
 })
