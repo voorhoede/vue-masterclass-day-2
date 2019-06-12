@@ -2,14 +2,8 @@
   <div class="app" :class="{'app--searching' : searching}">
     <app-header/>
     <app-sidebar/>
-    <chat-section
-      :messages="messages"
-      @newMessage="onNewMessage"
-    />
-    <search-sidebar
-      :messages="messages"
-      :searching="searching"
-    />
+    <chat-section/>
+    <search-sidebar :searching="searching"/>
   </div>
 </template>
 
@@ -37,10 +31,5 @@ export default {
       messages: state => state.messages
     })
   },
-  methods: {
-    onNewMessage(message) {
-      this.messages.push(message)
-    }
-  }
 };
 </script>

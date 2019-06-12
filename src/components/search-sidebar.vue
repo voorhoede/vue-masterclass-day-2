@@ -16,22 +16,17 @@
 
 <script>
 import MessageList from "./message-list";
+import { mapState } from 'vuex';
 
 export default {
   components: {
     MessageList
   },
-  props: {
-    messages: {
-      type: Array,
-      required: true
-    },
-    searching: {
-      type: Boolean,
-      default: false
-    }
-  },
   computed: {
+    ...mapState({
+      messages: state => state.messages,
+      user: state => state.user
+    }),
     filteredMessages() {
       return this.messages.filter(
         message => message.text.indexOf(this.searchText) > -1
