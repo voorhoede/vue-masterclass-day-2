@@ -9,6 +9,7 @@
     />
     <search-sidebar
       :messages="messages"
+      :search-text="searchText"
       :searching="searching"
     />
   </div>
