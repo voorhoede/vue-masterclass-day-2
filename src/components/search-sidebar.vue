@@ -8,24 +8,7 @@
         title="Close"
       ></button>
       <h2 class="search-sidebar__header">{{ header }}</h2>
-      <message-list>
-        <template v-for="message of filteredMessages">
-          <text-message
-            v-if="message.type === 'text'"
-            :key="message.id"
-            :date="message.date"
-            :user="message.user"
-            :text="message.text"
-          />
-
-          <cat-message
-            v-else-if="message.type === 'cat'"
-            :key="message.id"
-            :date="message.date"
-            :user="message.user"
-          />
-        </template>
-      </message-list>
+      <message-list :messages="filteredMessages"/>
     </aside>
   </transition>
 </template>
@@ -33,14 +16,10 @@
 
 <script>
 import MessageList from "./message-list";
-import TextMessage from "./text-message";
-import CatMessage from "./cat-message";
 
 export default {
   components: {
-    MessageList,
-    TextMessage,
-    CatMessage
+    MessageList
   },
   props: {
     messages: {
