@@ -9,7 +9,9 @@ export default new Vuex.Store({
       name: "Anoniempje",
       avatar: "./images/avatar.png"
     },
-    messages: []
+    messages: [],
+    searching: false,
+    searchText: ''
   },
   mutations: {
     addMessage(state, message) {
@@ -17,6 +19,12 @@ export default new Vuex.Store({
     },
     setUserName(state, name) {
       state.user.name = name
+    },
+    setSearching(state, status) {
+      state.searching = status
+    },
+    setSearchText(state, query) {
+      state.searchText = query
     }
   }
 })

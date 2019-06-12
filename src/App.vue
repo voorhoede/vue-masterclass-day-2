@@ -3,10 +3,7 @@
     <app-header/>
     <app-sidebar/>
     <chat-section/>
-    <search-sidebar
-      :searching="searching"
-      :search-text="searchText"
-    />
+    <search-sidebar/>
   </div>
 </template>
 
@@ -18,9 +15,6 @@ import ChatSection from "./components/chat-section";
 import SearchSidebar from "./components/search-sidebar";
 
 export default {
-  data: function() {
-    return window.chat;
-  },
   name: "app",
   components: {
     AppHeader,
@@ -31,7 +25,8 @@ export default {
   computed: {
     ...mapState({
       user: state => state.user,
-      messages: state => state.messages
+      messages: state => state.messages,
+      searching: state => state.searching
     })
   },
 };

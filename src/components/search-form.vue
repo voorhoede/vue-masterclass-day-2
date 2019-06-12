@@ -1,18 +1,31 @@
 <template>
   <form class="search-form" @submit.prevent="onSubmit">
-    <input type="search" v-model="searchText" placeholder="Search" class="search-field">
+    <input
+      type="search"
+      @input="onInput"
+      :value="searchText"
+      placeholder="Search"
+      class="search-field"
+    >
   </form>
 </template>
 
 <script>
+import { mapMutations, mapState } from 'vuex';
 export default {
-  data: function() {
-    return window.chat;
+  computed: {
+    ...mapState({
+      searchText: state => state.searchText
+    })
   },
   methods: {
+    ...mapMutations(['setSearching', 'setSearchText']),
+    onInput(e) {
+      this.setSearchText(e.target.value)
+    },
     onSubmit() {
-      this.searching = true;
-    }
+      this.setSearching(true);
+    },
   }
 };
 </script>

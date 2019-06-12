@@ -3,7 +3,7 @@
     <aside class="search-sidebar" v-if="searching">
       <button
         class="reset-button search-sidebar__close"
-        @click="searching = false"
+        @click="close"
         aria-label="Close"
         title="Close"
       ></button>
@@ -33,7 +33,7 @@
 
 <script>
 import MessageList from "./message-list";
-import { mapState } from 'vuex';
+import { mapState, mapMutations } from 'vuex';
 import TextMessage from "./text-message";
 import CatMessage from "./cat-message";
 
@@ -43,20 +43,12 @@ export default {
     TextMessage,
     CatMessage
   },
-  props: {
-    searching: {
-      type: Boolean,
-      default: false
-    },
-    searchText: {
-      type: String,
-      default: ''
-    }
-  },
   computed: {
     ...mapState({
       messages: state => state.messages,
-      user: state => state.user
+      user: state => state.user,
+      searching: state => state.searching,
+      searchText: state => state.searchText,
     }),
     filteredMessages() {
       return this.messages.filter(
@@ -68,6 +60,12 @@ export default {
         `${this.filteredMessages.length} Message` +
         (this.filteredMessages.length !== 1 ? "s" : "")
       );
+    }
+  },
+  methods: {
+    ...mapMutations(['setSearching']),
+    close() {
+      this.setSearching(false)
     }
   }
 };

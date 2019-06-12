@@ -5,19 +5,12 @@ import './main.css'
 
 Vue.config.productionTip = false
 
-window.chat = {
-  searching: false,
-  searchText: ''
-}
-
 new Vue({
   render: h => h(App),
-  data: window.chat,
   watch: {
     newProp() {
       console.log('newProp was added/changed');
     },
-
     messages(newValue) {
       console.log(`messages changed to ${newValue}`);
     }
