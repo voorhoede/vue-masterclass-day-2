@@ -5,8 +5,8 @@
       type="text"
       id="name"
       class="user-profile__name"
-      :value="user.name"
-      @input="onNameInput"
+      v-model="name"
+      @input="onInput"
     >
   </div>
 </template>
@@ -15,14 +15,22 @@
 import { mapState, mapMutations } from 'vuex'
 
 export default {
+  data() {
+    return {
+      name: ''
+    }
+  },
   computed: {
     ...mapState({
       user: state => state.user
     })
   },
+  created() {
+    this.name = this.user.name
+  },
   methods: {
     ...mapMutations(['updateUser']),
-    onNameInput(e) {
+    onInput(e) {
       this.updateUser({
         name: e.target.value
       })
