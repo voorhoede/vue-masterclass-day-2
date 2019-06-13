@@ -5,27 +5,40 @@
       type="text"
       id="name"
       class="user-profile__name"
-      :value="user.name"
-      @input="onNameInput"
+      v-model="name"
+      @input="onInput"
     >
   </div>
 </template>
 
 <script>
-import { mapState, mapMutations } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
+  data() {
+    return {
+      name: ''
+    }
+  },
   computed: {
-    ...mapState({
-      user: state => state.user
-    })
+    ...mapGetters(['currentUser'])
+  },
+  watch: {
+    currentUser() {
+      this.name = this.currentUser.name
+    }
+  },
+  created() {
+    if (!this.name && this.currentUser) {
+      this.name = this.currentUser.name
+    }
   },
   methods: {
-    ...mapMutations(['setUserName']),
-    onNameInput(e) {
-      this.setUserName(e.target.value)
+    ...mapActions(['updateUsername']),
+    onInput() {
+      this.updateUsername(this.name)
     }
-  }
+  },
 };
 </script>
 
