@@ -31,7 +31,7 @@ export default {
     ...mapGetters(['messages']),
     filteredMessages() {
       return this.messages.filter(
-        message => message.text.indexOf(this.searchText) > -1
+        message => message.text && message.text.indexOf(this.searchText) > -1
       );
     },
     header() {
