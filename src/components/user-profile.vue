@@ -21,9 +21,11 @@ export default {
     })
   },
   methods: {
-    ...mapMutations(['setUserName']),
+    ...mapMutations(['updateUser']),
     onNameInput(e) {
-      this.setUserName(e.target.value)
+      this.updateUser({
+        name: e.target.value
+      })
     }
   }
 };

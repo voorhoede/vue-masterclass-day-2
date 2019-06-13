@@ -17,8 +17,8 @@ export default new Vuex.Store({
     addMessage(state, message) {
       state.messages.push(message)
     },
-    setUserName(state, name) {
-      state.user.name = name
+    updateUser(state, userData) {
+      state.user = { ...state.user, ...userData }
     },
     setSearching(state, status) {
       state.searching = status
