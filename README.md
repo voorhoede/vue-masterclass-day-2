@@ -30,4 +30,4 @@ Messages and the user should be stored in the store. Create mutations to modify 
 ### Exercise 6 - Connecting to the API
 Connect the application to the api by using actions in the store. Get the messages and put them in the store using a mutation.
 
-* [Solution](https://codesandbox.io/s/github/voorhoede/vue-masterclass-day-2/tree/exercise5-solution)
+* [Solution](https://codesandbox.io/s/github/voorhoede/vue-masterclass-day-2/tree/exercise6-solution)
