@@ -2,7 +2,7 @@
 
 ## Exercises
 
-### Exercise 1 - create a single file component
+### Exercise 1 - Create a single file component
 We want to add an emoji picker to our message form. Add this by using a single file component. It should use `$emit` to add the emoji to the message text.
 
 * [Solution](https://codesandbox.io/s/github/voorhoede/vue-masterclass-day-2/tree/exercise1-solution)
