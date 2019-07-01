@@ -5,7 +5,6 @@
   </header>
 </template>
 
-
 <script>
 import SearchForm from "./search-form";
 
