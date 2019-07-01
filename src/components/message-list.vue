@@ -2,7 +2,7 @@
   <div class="message-list">
     <div v-if="messages.length === 0" class="message-list__empty">No messages</div>
 
-    <transition-group tag="ol" class="message-list__list" name="pop">
+    <ol class="message-list__list">
       <template v-for="message of messages">
         <text-message
           v-if="message.messageType === 'text'"
@@ -19,7 +19,7 @@
           :user="message.user"
         />
       </template>
-    </transition-group>
+    </ol>
   </div>
 </template>
 
