@@ -13,7 +13,7 @@ You may not use `window.chat` in `chat-section` and `search-sidebar` anymore. Us
 * [Solution](https://codesandbox.io/s/github/voorhoede/vue-masterclass-day-2/tree/exercise2-solution)
 
 ### Exercise 3 - Composition
-Use composition for `message-list`. The goal is to nog pass `messages` as prop, but instead use a `slot` to nest the list of messages.
+Use composition for `message-list`. The goal is to not pass `messages` as prop, but instead use a `slot` to nest the list of messages.
 
 * [Solution](https://codesandbox.io/s/github/voorhoede/vue-masterclass-day-2/tree/exercise3-solution)
 
