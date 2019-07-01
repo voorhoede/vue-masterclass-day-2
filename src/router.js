@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Channel from './containers/Channel'
+import Channel from './containers/channel'
 
 Vue.use(Router)
 
