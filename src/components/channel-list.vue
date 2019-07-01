@@ -2,15 +2,37 @@
   <div class="channel-list">
     <h2 class="channel-list__header">Channels</h2>
     <ul>
-      <li class="channel-list__item channel-list__item--current">
-        <span class="channel-list__bullet">#</span> Daily
-      </li>
-      <li class="channel-list__item">
-        <span class="channel-list__bullet">#</span> General
+      <li v-for="channel in channels" :key="channel.name">
+        <router-link
+          :to="`/${channel.id}`"
+          class="channel-list__item"
+          :class="{ 'channel-list__item--current': currentChannelId === channel.id }"
+        >
+          <span class="channel-list__bullet">#</span> {{ channel.name }}
+        </router-link>
       </li>
     </ul>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      channels: [
+        { name: 'General', id: 'general' },
+        { name: 'Random', id: 'random' },
+      ]
+    }
+  },
+  computed: {
+    currentChannelId() {
+      return this.$route.params.channelId
+    }
+  }
+}
+</script>
+
 
 <style>
 .channel-list__header {
@@ -27,6 +49,8 @@
 }
 
 .channel-list__item {
+  display: block;
+  text-decoration: none;
   color: rgba(255, 255, 255, 0.6);
   text-transform: lowercase;
   margin-left: calc(-1 * var(--spacing));

@@ -17,6 +17,12 @@ export default {
     MessageList,
     MessageField
   },
+  props: {
+    messages: {
+      type: Array,
+      required: true
+    }
+  },
   watch: {
     messages() {
       this.$nextTick(() => {
@@ -26,7 +32,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['messages', 'currentUser'])
+    ...mapGetters(['currentUser'])
   },
   methods: {
     ...mapActions(['sendMessage']),
@@ -34,7 +40,8 @@ export default {
       return {
         date: new Date(),
         user: this.currentUser._id,
-        id: this.messages.length
+        id: this.messages.length,
+        channel: this.$route.params.channelId
       };
     },
     onSubmit(text) {

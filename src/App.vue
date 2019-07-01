@@ -2,7 +2,7 @@
   <div class="app" :class="{'app--searching' : searching}">
     <app-header/>
     <app-sidebar/>
-    <chat-section/>
+    <router-view />
     <search-sidebar/>
   </div>
 </template>
