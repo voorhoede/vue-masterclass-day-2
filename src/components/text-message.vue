@@ -1,6 +1,6 @@
 <template>
   <message :user="user" :date="date">
-    <template slot="content">{{ text }}</template>
+    <template v-slot:content>{{ text }}</template>
   </message>
 </template>
 
