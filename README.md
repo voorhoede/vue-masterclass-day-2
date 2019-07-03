@@ -31,3 +31,9 @@ Messages and the user should be stored in the store. Create mutations to modify 
 Connect the application to the api by using actions in the store. Get the messages and put them in the store using a mutation.
 
 * [Solution](https://codesandbox.io/s/github/voorhoede/vue-masterclass-day-2/tree/exercise6-solution)
+
+### Exercise 7 - Using the router
+Make it possible to navigate between channels. Add routes to pass down the ID of the channel and load the corresponding messages.
+
+* [Solution](https://codesandbox.io/s/github/voorhoede/vue-masterclass-day-2/tree/exercise7-solution)
+
