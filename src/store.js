@@ -1,11 +1,5 @@
-import Vuex from 'vuex'
-import Vue from 'vue'
+// TODO: import Vue and Vuex
 
-Vue.use(Vuex)
+// TODO: install Vuex to Vue
 
-export default new Vuex.Store({
-  state: {
-    user: {},
-    messages: []
-  }
-})
+// TODO: Export store object with messages [] and user {} in it
