@@ -10,11 +10,6 @@ export default new Router({
       path: '/',
       redirect: 'general'
     },
-    {
-      path: '/:channelId',
-      name: 'Channel',
-      component: Channel,
-      props: true
-    }
+    // TODO: add route for channels using a dynamic segment
   ]
 })

@@ -10,17 +10,13 @@ export default {
   components: {
     ChatSection
   },
-  props: {
-    channelId: {
-      type: String,
-      required: true
-    }
-  },
   computed: {
     ...mapGetters(['messages']),
     filteredMessages() {
+      console.log(this.messages)
       return this.messages.filter(message =>
-        message.channel === this.$route.params.channelId
+        // TODO: use prop passed from route to filter messages on current channel
+        message
       )
     }
   },
