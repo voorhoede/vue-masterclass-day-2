@@ -21,6 +21,7 @@ export default {
   components: {
     MessageList
   },
+  // TODO: use props here instead of data
   data: function() {
     return window.chat;
   },
