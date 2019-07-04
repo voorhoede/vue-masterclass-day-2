@@ -63,9 +63,6 @@ export default new Vuex.Store({
       const user = await api.updateUser(updatedUser)
       commit('updateUser', user)
     },
-    async sendMessage(store, message) {
-      api.addMessage(message)
-    },
     async initChat({ commit }) {
       const { messages, users } = await api.init()
 
@@ -80,5 +77,6 @@ export default new Vuex.Store({
         }
       });
     }
+    //TODO: add action to send a message using the api
   }
 })
