@@ -14,9 +14,7 @@ export default new Vuex.Store({
     searchText: ''
   },
   mutations: {
-    addMessage(state, message) {
-      state.messages.push(message)
-    },
+    // TODO: add mutation for adding a message
     updateUser(state, userData) {
       state.user = { ...state.user, ...userData }
     },

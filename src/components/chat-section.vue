@@ -25,14 +25,18 @@ export default {
       })
     }
   },
-  computed: {
-    ...mapState({
-      user: state => state.user,
-      messages: state => state.messages
-    })
+  // TODO: use mapState to get data from the store and omit the props
+  props: {
+    messages: {
+      type: Array,
+      required: true
+    },
+    user: {
+      type: Object,
+      required: true
+    }
   },
   methods: {
-    ...mapMutations(['addMessage']),
     createMessage() {
       return {
         date: new Date(),
@@ -50,7 +54,8 @@ export default {
         message.text = text;
       }
 
-      this.addMessage(message)
+      // TODO: use mutation to add new message instead of emitting event
+      this.$emit('newMessage', message)
     }
   }
 };
