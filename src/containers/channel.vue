@@ -20,7 +20,7 @@ export default {
     ...mapGetters(['messages']),
     filteredMessages() {
       return this.messages.filter(message =>
-        message.channel === this.$route.params.channelId
+        message.channel === this.channelId
       )
     }
   },
