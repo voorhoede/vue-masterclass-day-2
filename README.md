@@ -43,3 +43,12 @@ Make it possible to navigate between channels. Add routes to pass down the ID of
 
 * [Exercise](https://codesandbox.io/s/github/voorhoede/vue-masterclass-day-2/tree/exercise7)
 * [Solution](https://codesandbox.io/s/github/voorhoede/vue-masterclass-day-2/tree/exercise7-solution)
+
+### Exercise 8 - Write a test for the message-field component
+Write a unit tests for the message-field component according to the requirements:
+- emits the message when pressing enter
+- allows you to add emoji’s
+- clears the text after it has been submitted
+
+* [Exercise](https://codesandbox.io/s/github/voorhoede/vue-masterclass-day-2/tree/exercise8)
+* [Solution](https://codesandbox.io/s/github/voorhoede/vue-masterclass-day-2/tree/exercise8-solution)
