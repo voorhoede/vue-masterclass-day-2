@@ -15,8 +15,7 @@ export default {
     filteredMessages() {
       console.log(this.messages)
       return this.messages.filter(message =>
-        // TODO: use prop passed from route to filter messages on current channel
-        message
+        message.channel === this.channelId
       )
     }
   },
