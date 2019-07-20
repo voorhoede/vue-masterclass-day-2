@@ -64,7 +64,8 @@ export default new Vuex.Store({
       commit('updateUser', user)
     },
     async sendMessage(store, message) {
-      api.addMessage(message)
+      throw new Error('Unable to send the message!');
+      // api.addMessage(message)
     },
     async initChat({ commit }) {
       const { messages, users } = await api.init()
