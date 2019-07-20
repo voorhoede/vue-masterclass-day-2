@@ -12,6 +12,14 @@ body {
   box-sizing: border-box;
 }
 
+.error {
+  margin: var(--spacing);
+  color: #fff;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: red;
+}
+
 .app {
   font-family: "Nunito", sans-serif;
   font-size: 16px;

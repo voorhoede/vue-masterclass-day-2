@@ -8,7 +8,7 @@ const defaultUser = {
 function fixMessage(message) {
   return Object.assign(message, {
     channel: message.channel || 'general',
-    date: new Date(message.date)
+    date: '2019-07-20',
   });
 }
 
@@ -118,13 +118,11 @@ export default class {
     return fetch(`${host}/messages/_design/messages_sorted/_view/messages_sorted?include_docs=true`)
       .then(res => res.json())
       .then(data => {
-        return null;
-
-        // return data.rows.map(({
-        //   doc
-        // }) => {
-        //   return fixMessage(doc);
-        // });
+        return data.rows.map(({
+          doc
+        }) => {
+          return fixMessage(doc);
+        });
       });
   }
 

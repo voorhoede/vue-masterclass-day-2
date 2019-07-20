@@ -1,5 +1,6 @@
 <template>
   <section class="chat-section">
+    <p v-if="error" class="error">Sorry, an error occured. Please try again later!</p>
     <div ref="messages" class="chat-section__messages">
       <message-list :messages="messages"/>
     </div>
@@ -23,6 +24,11 @@ export default {
       required: true
     }
   },
+  data: function () {
+    return {
+      error: false,
+    }
+  },
   watch: {
     messages() {
       this.$nextTick(() => {
@@ -30,6 +36,10 @@ export default {
         messagesEl.scrollTop = messagesEl.scrollHeight
       })
     }
+  },
+  errorCaptured(error) {
+    this.error = true;
+    return false;
   },
   computed: {
     ...mapGetters(['currentUser'])
@@ -54,7 +64,7 @@ export default {
         message.text = text;
       }
 
-      this.sendMessage(message)
+      this.sendMessage(message);
     }
   }
 };
