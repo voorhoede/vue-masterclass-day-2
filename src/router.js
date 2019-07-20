@@ -14,7 +14,6 @@ export default new Router({
       path: '/:channelId',
       name: 'Channel',
       component: Channel,
-      props: true
     }
   ]
 })
