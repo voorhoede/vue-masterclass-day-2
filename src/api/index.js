@@ -118,11 +118,13 @@ export default class {
     return fetch(`${host}/messages/_design/messages_sorted/_view/messages_sorted?include_docs=true`)
       .then(res => res.json())
       .then(data => {
-        return data.rows.map(({
-          doc
-        }) => {
-          return fixMessage(doc);
-        });
+        return null;
+
+        // return data.rows.map(({
+        //   doc
+        // }) => {
+        //   return fixMessage(doc);
+        // });
       });
   }
 
