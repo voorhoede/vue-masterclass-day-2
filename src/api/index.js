@@ -7,6 +7,7 @@ const defaultUser = {
 
 function fixMessage(message) {
   return Object.assign(message, {
+    channel: message.channel || 'general',
     date: new Date(message.date)
   });
 }

@@ -13,9 +13,8 @@ export default {
   computed: {
     ...mapGetters(['messages']),
     filteredMessages() {
-      console.log(this.messages)
       return this.messages.filter(message =>
-        message.channel === this.channelId
+        message.channel === this.$route.params.channelId
       )
     }
   },
