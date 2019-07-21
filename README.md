@@ -1,9 +1,6 @@
-# Vue masterclass day 2 - exercise 7
+# Vue masterclass day 2 - exercise 8
 
-Write a unit tests for the message-field component according to the requirements:
-- emits the message when pressing enter
-- allows you to add emoji’s
-- clears the text after it has been submitted
+Handle errors in `chat-section` using `errorCaptured`.
 
-* [Exercise](https://codesandbox.io/s/github/voorhoede/vue-masterclass-day-2/tree/exercise7)
-* [Solution](https://codesandbox.io/s/github/voorhoede/vue-masterclass-day-2/tree/exercise7-solution)
+* [Exercise](https://codesandbox.io/s/github/voorhoede/vue-masterclass-day-2/tree/exercise8)
+* [Solution](https://codesandbox.io/s/github/voorhoede/vue-masterclass-day-2/tree/exercise8-solution)
