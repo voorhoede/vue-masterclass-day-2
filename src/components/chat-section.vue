@@ -47,6 +47,7 @@ export default {
         message.text = text;
       }
 
+      // TODO: emit message instead of adding it to messages here
       this.messages.push(message);
     }
   }
