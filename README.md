@@ -47,8 +47,8 @@ Write a unit tests for the message-field component according to the requirements
 * [Exercise](https://codesandbox.io/s/github/voorhoede/vue-masterclass-day-2/tree/exercise7)
 * [Solution](https://codesandbox.io/s/github/voorhoede/vue-masterclass-day-2/tree/exercise7-solution)
 
-### Exercise 8 - Add different routes for each channel
-Add a route for the channel container and use the dynamic part to filter out only the messages for that channel.
+### Exercise 8 - Add an error boundary
+Handle errors in `chat-section` using `errorCaptured`.
 
 * [Exercise](https://codesandbox.io/s/github/voorhoede/vue-masterclass-day-2/tree/exercise8)
 * [Solution](https://codesandbox.io/s/github/voorhoede/vue-masterclass-day-2/tree/exercise8-solution)
