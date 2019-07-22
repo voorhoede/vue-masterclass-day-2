@@ -26,14 +26,6 @@ export default {
       required: true
     }
   },
-  watch: {
-    messages() {
-      this.$nextTick(() => {
-        const messagesEl = this.$refs.messages
-        messagesEl.scrollTop = messagesEl.scrollHeight
-      })
-    }
-  },
   methods: {
     createMessage() {
       return {
