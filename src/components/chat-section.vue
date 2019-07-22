@@ -30,14 +30,6 @@ export default {
       error: false,
     }
   },
-  watch: {
-    messages() {
-      this.$nextTick(() => {
-        const messagesEl = this.$refs.messages
-        messagesEl.scrollTop = messagesEl.scrollHeight
-      })
-    }
-  },
   computed: {
     ...mapGetters(['currentUser'])
   },
