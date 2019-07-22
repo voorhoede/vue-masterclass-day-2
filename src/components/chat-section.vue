@@ -17,14 +17,6 @@ export default {
     MessageList,
     MessageField
   },
-  watch: {
-    messages() {
-      this.$nextTick(() => {
-        const messagesEl = this.$refs.messages
-        messagesEl.scrollTop = messagesEl.scrollHeight
-      })
-    }
-  },
   computed: {
     ...mapState({
       user: state => state.user,
