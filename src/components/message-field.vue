@@ -1,7 +1,7 @@
 <template>
   <form class="message-field" @submit.prevent="onSubmit">
     <input class="message-field__input" v-model="text" type="text" autofocus>
-    <emoji-picker @pick="emoji => text = text + emoji"/>
+    <emoji-picker @pick="onEmojiPick"/>
     <input class="message-field__submit" type="submit">
   </form>
 </template>
@@ -24,6 +24,9 @@ export default {
         this.$emit("submit", this.text);
         this.text = "";
       }
+    },
+    onEmojiPick(emoji) {
+      this.text += emoji;
     }
   }
 };
