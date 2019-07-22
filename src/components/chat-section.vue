@@ -17,14 +17,6 @@ export default {
     MessageList,
     MessageField
   },
-  watch: {
-    messages() {
-      this.$nextTick(() => {
-        const messagesEl = this.$refs.messages
-        messagesEl.scrollTop = messagesEl.scrollHeight
-      })
-    }
-  },
   // TODO: use mapState to get data from the store and omit the props
   props: {
     messages: {
