@@ -1,6 +1,6 @@
 <template>
   <header class="app-header">
-    <h2 class="app-header__title">#{{ $route.params.channelId }}</h2>
+    <h2 class="app-header__title">#<!-- TODO: get the id from the route --></h2>
     <search-form/>
   </header>
 </template>
