@@ -33,7 +33,7 @@ Connect the application to the api by using actions in the store. Get the messag
 * [Solution](https://codesandbox.io/s/github/voorhoede/vue-masterclass-day-2/tree/exercise5-solution)
 
 ### Exercise 6 - Using the router
-Make it possible to navigate between channels. Add routes to pass down the ID of the channel and load the corresponding messages.
+Make it possible to navigate between channels. Add routes to pass down the ID of the channel and load the corresponding messages. Use :channelId as dynamic route segment.
 
 * [Exercise](https://codesandbox.io/s/github/voorhoede/vue-masterclass-day-2/tree/exercise6)
 * [Solution](https://codesandbox.io/s/github/voorhoede/vue-masterclass-day-2/tree/exercise6-solution)
