@@ -11,7 +11,6 @@
 import { mapState, mapActions } from 'vuex'
 import AppHeader from "./components/app-header";
 import AppSidebar from "./components/app-sidebar";
-import ChatSection from "./components/chat-section";
 import SearchSidebar from "./components/search-sidebar";
 
 export default {
@@ -19,7 +18,6 @@ export default {
   components: {
     AppHeader,
     AppSidebar,
-    ChatSection,
     SearchSidebar
   },
   computed: {
