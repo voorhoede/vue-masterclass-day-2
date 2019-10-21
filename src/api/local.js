@@ -70,9 +70,6 @@ export default class {
         fetch(`${host}/users`).then(res => res.json())
       ])
 
-      console.log(users);
-      
-
       callback({ messages, users})
     }, 1000);
   }
