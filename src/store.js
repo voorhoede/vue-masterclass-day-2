@@ -1,6 +1,6 @@
 import Vuex from 'vuex'
 import Vue from 'vue'
-import Api from './api/index.js';
+import Api from './api/local.js';
 
 const api = new Api()
 
@@ -9,7 +9,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     users: [],
-    user: api.getUserId(),
+    user: {},
     messages: [],
     searching: false,
     searchText: ''
@@ -17,16 +17,14 @@ export default new Vuex.Store({
   getters: {
     messages (state) {
       return state.messages
-        .filter(message => message.user)
+        .filter(message => message.userId)
         .map(message => {
-          message.user = state.users.find(user => user._id === (message.user._id || message.user))
+          message.user = state.users.find(user => user.id === Number(message.userId))
+          message.date = new Date(message.date)
           return message
         })
         .sort((a, b) => a.date - b.date)
     },
-    currentUser(state) {
-      return state.users.find(user => user._id === state.user);
-    }
   },
   mutations: {
     addMessage(state, message) {
@@ -34,6 +32,9 @@ export default new Vuex.Store({
     },
     setMessages(state, messages) {
       state.messages = [...state.messages, ...messages]
+    },
+    setUser(state, user) {
+      state.user = user
     },
     setUsers(state, users) {
       state.users = users
@@ -43,7 +44,7 @@ export default new Vuex.Store({
     },
     updateUser(state, userData) {
       state.users = state.users.map(user => {
-        if (user._id === userData._id) {
+        if (user.id === userData.id) {
           return { ...user, ...userData }
         } else {
           return user
@@ -58,25 +59,42 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    async updateUsername ({ getters, commit }, username) {
-      const updatedUser = { ...getters.currentUser, name: username }
-      const user = await api.updateUser(updatedUser)
-      commit('updateUser', user)
+    async updateUsername ({ state, commit }, username) {
+      const updatedUser = { ...state.user, name: username }
+      await api.updateUser(updatedUser)
+      commit('updateUser', updatedUser)
     },
     async sendMessage(store, message) {
       api.addMessage(message)
     },
-    async initChat({ commit }) {
-      const { messages, users } = await api.init()
+    async initChat({ commit, state }) {
+      const { messages, users, user} = await api.init()
 
+      commit('setUser', user)
       commit('setUsers', users)
       commit('setMessages', messages)
 
-      api.startStream(doc => {
-        if (doc.type === 'message') {
-          commit('addMessage', doc)
-        } else {
-          commit('addUser', doc)
+      api.startStream(({ users = [], messages = [] }) => {
+        const existingUsersCount = state.users.length
+        const newUsersCount = users.length
+        const existingMessagesCount = state.messages.length
+        const newMessagesCount = messages.length
+
+        if (existingUsersCount !== newUsersCount) {
+          messages.slice(existingUsersCount, newUsersCount).forEach(user => {
+            commit('addUser', user)
+          })
+        }
+
+        users.filter(user => {
+          const userInState = state.users.find(u => u.id === user.id)
+          return userInState ? userInState.name !== user.name : false
+        }).forEach(user => commit('updateUser', user))
+
+        if (existingMessagesCount !== newMessagesCount) {
+          messages.slice(existingMessagesCount, newMessagesCount).forEach(message => {
+            commit('addMessage', message)
+          })
         }
       });
     }
