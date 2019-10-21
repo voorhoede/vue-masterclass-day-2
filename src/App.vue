@@ -22,8 +22,6 @@ export default {
   },
   computed: {
     ...mapState({
-      user: state => state.user,
-      messages: state => state.messages,
       searching: state => state.searching
     })
   },

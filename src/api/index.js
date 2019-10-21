@@ -35,7 +35,7 @@ export default class {
 
     const users = await this.getUsers();
 
-    if (!users.some(user => user._id === userId)) {
+    if (!users.some(user => user.id === userId)) {
       await this.createUser(userId);
     }
 
@@ -50,7 +50,7 @@ export default class {
 
   createUser(id) {
     let user = Object.assign({
-      _id: id,
+      id: id,
       type: 'user'
     }, defaultUser);
 
@@ -71,7 +71,7 @@ export default class {
   }
 
   updateUser(user) {
-    return fetch(`${host}/messages/${user._id}?_rev=${user._rev}`, {
+    return fetch(`${host}/messages/${user.id}?_rev=${user._rev}`, {
         method: 'PUT',
         body: JSON.stringify(user),
         headers: {
