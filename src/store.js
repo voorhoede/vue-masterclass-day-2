@@ -59,13 +59,11 @@ export default new Vuex.Store({
     }
   },
   actions: {
+    //TODO: add action to send a message using the api
     async updateUsername ({ state, commit }, username) {
       const updatedUser = { ...state.user, name: username }
       await api.updateUser(updatedUser)
       commit('updateUser', updatedUser)
-    },
-    async sendMessage(store, message) {
-      api.addMessage(message)
     },
     async initChat({ commit, state }) {
       const { messages, users, user} = await api.init()

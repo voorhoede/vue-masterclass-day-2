@@ -24,7 +24,6 @@ export default {
     ...mapGetters(['messages'])
   },
   methods: {
-    ...mapActions(['sendMessage']),
     createMessage() {      
       return {
         date: new Date(),
@@ -42,7 +41,7 @@ export default {
         message.text = text;
       }
 
-      this.sendMessage(message)
+      // TODO: use action from store to send the message
     }
   }
 };
