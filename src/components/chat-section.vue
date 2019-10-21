@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters, mapActions, mapState } from 'vuex'
 import MessageList from "./message-list";
 import MessageField from "./message-field";
 
@@ -18,20 +18,23 @@ export default {
     MessageField
   },
   computed: {
-    ...mapGetters(['messages', 'currentUser'])
+    ...mapState({
+      user: state => state.user
+    }),
+    ...mapGetters(['messages'])
   },
   methods: {
     ...mapActions(['sendMessage']),
     createMessage() {
       return {
         date: new Date(),
-        user: this.currentUser._id,
-        id: this.messages.length
+        userId: String(this.user.id),
+        channel: this.$route.params.channelId
       };
     },
     onSubmit(text) {
       let message = this.createMessage();
-
+      
       if (text.indexOf("/cat") === 0) {
         message.messageType = "cat";
       } else {

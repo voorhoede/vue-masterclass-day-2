@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 
 export default {
   data() {
@@ -20,17 +20,19 @@ export default {
       name: ''
     }
   },
-  computed: {
-    ...mapGetters(['currentUser'])
-  },
   watch: {
-    currentUser() {
-      this.name = this.currentUser.name
+    user() {
+      this.name = this.user.name
     }
   },
+  computed: {
+    ...mapState({
+      user: state => state.user
+    }),
+  },
   created() {
-    if (!this.name && this.currentUser) {
-      this.name = this.currentUser.name
+    if (!this.name && this.user) {
+      this.name = this.user.name
     }
   },
   methods: {

@@ -6,7 +6,7 @@
       <template v-for="message of messages">
         <text-message
           v-if="message.messageType === 'text'"
-          :key="message._id"
+          :key="message.id"
           :date="message.date"
           :user="message.user"
           :text="message.text"
@@ -14,7 +14,7 @@
 
         <cat-message
           v-else-if="message.messageType === 'cat'"
-          :key="message._id"
+          :key="message.id"
           :date="message.date"
           :user="message.user"
         />
