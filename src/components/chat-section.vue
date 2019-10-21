@@ -25,11 +25,11 @@ export default {
   },
   methods: {
     ...mapActions(['sendMessage']),
-    createMessage() {
+    createMessage() {      
       return {
         date: new Date(),
         userId: String(this.user.id),
-        channel: this.$route.params.channelId
+        channel: 'general'
       };
     },
     onSubmit(text) {
