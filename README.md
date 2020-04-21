@@ -2,6 +2,13 @@
 
 ## Exercises
 
+### Exercise 0 - Single-file component
+
+Convert `search-form.js` into a [single-file component](https://vuejs.org/v2/guide/single-file-components.html).
+
+* [Exercise](https://codesandbox.io/s/github/voorhoede/vue-masterclass-day-2/tree/exercise0)
+* [Solution](https://codesandbox.io/s/github/voorhoede/vue-masterclass-day-2/tree/exercise0-solution)
+
 ### Exercise 1 - Create a single file component
 We want to add an emoji picker to our message form. Add this by using a single file component. It should use `$emit` to add the emoji to the message text.
 
