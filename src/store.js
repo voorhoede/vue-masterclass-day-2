@@ -63,17 +63,18 @@ export default new Vuex.Store({
       const user = await api.updateUser(updatedUser)
       commit('updateUser', user)
     },
-    async sendMessage(store, message) {
-      api.addMessage(message)
+    async sendMessage({ commit }, message) {
+      const data = await api.addMessage(message)
+      commit('addMessage', { ...message, _id: data.id })
     },
-    async initChat({ commit }) {
+    async initChat({ commit, state }) {
       const { messages, users } = await api.init()
 
       commit('setUsers', users)
       commit('setMessages', messages)
 
       api.startStream(doc => {
-        if (doc.type === 'message') {
+        if (doc.type === 'message' && doc.user !== state.user) {
           commit('addMessage', doc)
         } else {
           commit('addUser', doc)
